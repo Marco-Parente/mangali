@@ -9,9 +9,10 @@ package mangali.entities;
  *
  * @author marcoparente
  */
-public class Categoria {
+public class Autor {
     private int id;
     private String nome;
+    private String nacionalidade;
 
     public int getId() {
         return id;
@@ -28,6 +29,15 @@ public class Categoria {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public String getNacionalidade() {
+        return nacionalidade;
+    }
+
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
+    }
+    
     
     
 }
