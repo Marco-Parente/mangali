@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -17,14 +18,14 @@ public class CategoriaController {
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
-    public String index() {
-        return "\"teste\"";
+    public List<Categoria> index() {
+        return banco.consultar();
     }
     
     @GET
-    @Path("/select/{id}")
+    @Path("/create/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Categoria select(@PathParam("id") int pk){
+    public Categoria create(@PathParam("id") int pk){
         System.out.println("Parametro: "+pk);
         for(Categoria cat : banco.consultar()){
             if(cat.getId() == pk){
@@ -35,9 +36,9 @@ public class CategoriaController {
     }
     
     @GET
-    @Path("/insert/{nome}")
+    @Path("/read/{nome}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String cadastrar(@PathParam("nome") String nome){
+    public String read(@PathParam("nome") String nome){
         
         try{
             System.out.println("Cadastrando " + nome);
